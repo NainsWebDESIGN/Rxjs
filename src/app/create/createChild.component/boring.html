@@ -1,0 +1,20 @@
+<h3>empty, never, throw 應用</h3>
+<p>&emsp;這幾個是比較無趣的 operators 但接下來會有很多實際使用的例子</p>
+<p>&emsp;empty 有點像是數學上的零(0)，簡單來說會給我們一個空的Observable，訂閱他會直接送出complete的訊息</p>
+<pre>
+  <code>
+    <span class="red">import</span> {{'{'}} Observable {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/Observable'</span>;
+    <span class="red">import</span> {{'{'}} empty {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/empty'</span>;
+
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">string</span>{{'>'}} <span class="red">=</span> <span class="vue-green">empty</span>();
+      
+    <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
+      <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
+      <span class="vue-green">conplete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+      <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
+    {{'}'}}
+    <span class="orange">this</span>.source.<span class="vue-green">subscribe</span>(Observer);
+    
+    <span class="gray">// 完成!</span>
+  </code>
+</pre>
