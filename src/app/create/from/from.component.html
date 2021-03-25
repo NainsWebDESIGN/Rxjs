@@ -1,0 +1,46 @@
+<h3>from 應用</h3>
+<p>&emsp;from 能夠以參數的方式將陣列傳送給訂閱者</p>
+<pre>
+  <code>
+    <span class="red">import</span> {{'{'}} Observable {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/Observable'</span>;
+    <span class="red">import</span> {{'{'}} from {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/from'</span>;
+
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">from</span>([<span class="yellow">'Nains'</span>, <span class="yellow">'Todd'</span>, <span class="yellow">'Jacky'</span>])
+
+    <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
+    <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
+    <span class="vue-green">conplete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+    <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
+    {{'}'}}
+    <span class="orange">this</span>.source.<span class="vue-green">subscribe</span>(Observer);
+    
+    <span class="gray">// Nains</span>
+    <span class="gray">// Todd</span>
+    <span class="gray">// Jacky</span>
+    <span class="gray">// 完成!</span>
+  </code>
+</pre>
+
+<p>&emsp;當然 from 也能傳送字串</p>
+<pre>
+  <code>
+    <span class="red">import</span> {{'{'}} Observable {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/Observable'</span>;
+    <span class="red">import</span> {{'{'}} from {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/from'</span>;
+
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">string</span>{{'>'}} <span class="red">=</span> <span class="vue-green">from</span>(<span class="yellow">'Nains'</span>)
+
+    <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
+    <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
+    <span class="vue-green">conplete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+    <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
+    {{'}'}}
+    <span class="orange">this</span>.source.<span class="vue-green">subscribe</span>(Observer);
+    
+    <span class="gray">// N</span>
+    <span class="gray">// a</span>
+    <span class="gray">// i</span>
+    <span class="gray">// n</span>
+    <span class="gray">// s</span>
+    <span class="gray">// 完成!</span>
+  </code>
+</pre>

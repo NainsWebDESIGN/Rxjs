@@ -1,11 +1,31 @@
-@import "font.css";
+@import "font.scss";
 * {
   font-family: "my_font";
   font-family: "微軟正黑體";
   color: #fff;
+  letter-spacing: 1.3px;
 }
 body {
   background: #474747;
+}
+.routerBtn {
+  text-decoration: none;
+  height: 29px;
+  width: auto;
+  padding: 3px 13px;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #1857a4, #1857a477);
+  letter-spacing: 1.3px;
+  color: #ddd;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  line-height: 29px;
+  text-align: center;
+  font-weight: 700;
+}
+a {
+  text-decoration: none;
 }
 h1 {
   width: 100%;
@@ -21,6 +41,12 @@ p {
   position: relative;
   left: 15%;
   width: 70%;
+}
+ul li {
+  list-style: none;
+}
+p {
+  font-weight: 700;
 }
 pre {
   position: relative;

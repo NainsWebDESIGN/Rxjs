@@ -7,8 +7,10 @@ import { ConcatComponent } from './combination/concat/concat.component';
 import { ForkJoinComponent } from './combination/forkJoin/forkJoin.component';
 import { CombinationComponent } from './combination/combination.component';
 import { CreateComponent } from './create/create.component';
+import { OfComponent } from './create/of/of.component';
+import { FromComponent } from './create/from/from.component';
 
-import { ConcatService } from '@service/concat.service';
+import { AppService } from '@service/app.service';
 import { AppRoutingModule } from './app.routing';
 
 
@@ -18,13 +20,15 @@ import { AppRoutingModule } from './app.routing';
     ConcatComponent,
     ForkJoinComponent,
     CombinationComponent,
-    CreateComponent
+    CreateComponent,
+    OfComponent,
+    FromComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ConcatService],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
