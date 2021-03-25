@@ -44,8 +44,8 @@ export class FromComponent implements OnInit {
 export class FromEventComponent implements OnInit {
   source: Observable<any> = fromEvent(document.body, 'click');
   constructor(private app: AppService) { }
-
   ngOnInit() {
+    this.source.subscribe(this.app.Observer);
   }
 
 }
