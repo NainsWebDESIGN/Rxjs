@@ -1,0 +1,70 @@
+@import "font.css";
+* {
+  font-family: "my_font";
+  font-family: "微軟正黑體";
+  color: #fff;
+}
+body {
+  background: #474747;
+}
+h1 {
+  width: 100%;
+  text-align: center;
+}
+h3,
+p {
+  margin: 31px 0;
+}
+ul li,
+h3,
+p {
+  position: relative;
+  left: 15%;
+  width: 70%;
+}
+pre {
+  position: relative;
+  left: 20%;
+  background: #202020;
+  border-radius: 10px;
+  width: 60%;
+}
+.red {
+  color: #b52e31;
+}
+.orange {
+  color: #eb5424;
+}
+.azure-blue {
+  color: #007fff;
+}
+.C#-purple {
+  color: #68217a;
+}
+.gatsby-purple {
+  color: #639;
+}
+.cyan {
+  color: #5dc9e2;
+}
+.gray {
+  color: #557c9b;
+}
+.yellow {
+  color: #f9e64f;
+}
+.mandalorian-blue {
+  color: #1857a4;
+}
+.node-green {
+  color: #215732;
+}
+.react-blue {
+  color: #00b3e6;
+}
+.different {
+  color: #832561;
+}
+.vue-green {
+  color: #42b883;
+}
