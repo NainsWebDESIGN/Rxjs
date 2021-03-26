@@ -8,6 +8,7 @@ import { CreateComponent } from './create/create.component';
 import {
   OfComponent, FromComponent, FromEventComponent, Frompromise, Boring, Timer, SubscriptionComponent
 } from './create/createChild.component/createChild.component';
+import { OperatorsChildComponent } from './operators/operatorsChild/operatorsChild.component';
 
 import { AppService } from '@service/app.service';
 import { AppRoutingModule } from './app.routing';
@@ -17,7 +18,7 @@ import { AppRoutingModule } from './app.routing';
   declarations: [
     AppComponent, OperatorsComponent, CreateComponent, OfComponent,
     FromComponent, FromEventComponent, Frompromise, Boring, Timer,
-    SubscriptionComponent
+    SubscriptionComponent, OperatorsChildComponent
   ],
   imports: [
     BrowserModule,
