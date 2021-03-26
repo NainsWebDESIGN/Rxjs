@@ -1,0 +1,34 @@
+<h3>Subscription 應用</h3>
+<p>&emsp;Subscription 不管應用何種的訂閱(subscribe) ，總會有需要取消訂閱(unsubscribe)的時候，而 Subscription 則能在這時派上用場，因本人是用 Angular
+    進行開發，這邊則用了一個原本 ng2
+    的東西來做示範，因為實在太好用了，下面會再補充這個 OnDestory 的用法，當然取消訂閱是依照各人的設計完成的，你也可以設定在幾秒後退訂</p>
+<pre>
+  <code>
+    <span class="red">import</span> {{'{'}} OnDestroy {{'}'}} <span class="red">from</span> <span class="yellow">'@angular/core'</span>;
+    <span class="red">import</span> {{'{'}} Observable {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/Observable'</span>;
+    <span class="red">import</span> {{'{'}} Subscription {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/Subscription'</span>;
+
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">interval</span>(<span class="gatsby-purple">1000</span>);
+    clearSource<span class="red">:</span> <span class="vue-green">Subscription</span> <span class="red">= new</span> <span class="vue-green">Subscription</span>();
+      
+    <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
+      <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
+      <span class="vue-green">complete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+      <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
+    {{'}'}}
+    <span class="orange">this</span>.clearSource <span class="red">=</span> <span class="orange">this</span>.source.<span class="vue-green">subscribe</span>(Observer);
+
+    <span class="vue-green">ngOnDestroy</span>() {{'{'}}
+      <span class="orange">this</span>.clearSource.<span class="vue-green">unsubscribe</span>();
+    {{'}'}}
+    
+    <span class="gray">// 0</span>
+    <span class="gray">// 1</span>
+    <span class="gray">// 2</span>
+    <span class="gray">// ...</span>
+  </code>
+</pre>
+
+<p>&emsp;我們在上面創建一個 Subscription ，接著在 source 訂閱的時候，指定 clearSource = source ，接著將 clearSource 取消訂閱</p>
+<p>&emsp;這邊我解釋一下 OnDestory 的用意，這個東西的意思是當你破壞這個頁面(離開這個 Component )的時候，才去執行的事情，於是我上面的做法就是當我離開這個頁面(不管利用 Router 或是別的方式)就會去執行
+    OnDestory 裡面要做的事情。</p>

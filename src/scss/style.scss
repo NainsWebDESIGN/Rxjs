@@ -5,9 +5,11 @@
   color: #fff;
   letter-spacing: 1.3px;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: #474747;
-  scroll-behavior: smooth;
 }
 .routerBtn {
   text-decoration: none;
@@ -15,7 +17,7 @@ body {
   width: auto;
   padding: 3px 13px;
   border-radius: 10px;
-  background: linear-gradient(to bottom, #1857a4, #1857a477);
+  background: linear-gradient(to bottom, #4e8cd8c4, #1857a4);
   letter-spacing: 1.3px;
   color: #ddd;
   position: fixed;
@@ -27,19 +29,27 @@ body {
 }
 .topBtn {
   text-decoration: none;
-  height: 29px;
-  width: auto;
-  padding: 3px 13px;
-  border-radius: 10px;
-  background: linear-gradient(to bottom, #1857a4, #1857a477);
-  letter-spacing: 1.3px;
-  color: #ddd;
+  background: linear-gradient(to bottom, #4e8cd8c4, #1857a4);
   position: fixed;
   bottom: 20px;
   right: 20px;
-  line-height: 29px;
-  text-align: center;
-  font-weight: 700;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.fa-caret-circle-up {
+  size: 9px;
+  height: 29px;
+  width: auto;
+}
+.routerBtn:hover {
+  color: #ddd;
+  background: linear-gradient(to bottom, #1857a4, #4e8cd8c4);
+  text-decoration: none;
+}
+.topBtn:hover {
+  background: linear-gradient(to bottom, #1857a4, #4e8cd8c4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 a {
   text-decoration: none;
@@ -81,7 +91,7 @@ pre {
 .azure-blue {
   color: #007fff;
 }
-.C#-purple {
+.C-purple {
   color: #68217a;
 }
 .gatsby-purple {

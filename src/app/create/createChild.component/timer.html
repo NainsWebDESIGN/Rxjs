@@ -1,0 +1,54 @@
+<h3>interval, timer 應用</h3>
+<p>&emsp;這兩個是關於時間的 operators 在 js 中時常會看到，在 Observable 裡也有直接的使用方式(原本的方式也能使用，並不受限)</p>
+<p>&emsp;empty 有點像是數學上的零(0)，簡單來說會給我們一個空的Observable，訂閱他會直接送出complete的訊息</p>
+<pre>
+  <code>
+    <span class="red">import</span> {{'{'}} Observable {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/Observable'</span>;
+    <span class="red">import</span> {{'{'}} interval {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/interval'</span>;
+
+    <span class="gray">// 常規的 js 是如下使用時間循環</span>
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">Observable</span>.<span class="vue-green">create</span>(<span class="orange">ob</span> <span class="cyan">=></span> {{'{'}}
+        <span class="cyan">let</span> i <span class="red">=</span> <span class="gatsby-purple">0</span>;
+        <span class="cyan">setInterval</span>(() <span class="cyan">=></span> {{'{'}}
+            <span class="orange">ob</span>.<span class="vue-green">next</span>(i<span class="red">++</span>);
+        {{'}'}}, <span class="gatsby-purple">1000</span>)
+    {{'}'}});
+    <span class="gray">// 在 Observable 有一個專屬的 operators 可以更方便的去使用，輸出是完全相同的</span>
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">interval</span>(<span class="gatsby-purple">1000</span>);
+
+    <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
+      <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
+      <span class="vue-green">complete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+      <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
+    {{'}'}}
+    <span class="orange">this</span>.source.<span class="vue-green">subscribe</span>(Observer);
+    
+    <span class="gray">// 0</span>
+    <span class="gray">// 1</span>
+    <span class="gray">// 2</span>
+    <span class="gray">// ...</span>
+  </code>
+</pre>
+
+<p>&emsp;timer 則比較有趣，它可以同時接收兩個值(第一個為一開始延遲的時間，第二個值為中間間隔時間)，但只給一個值時則跟 setTimeout 是相同的</p>
+<pre>
+  <code>
+    <span class="red">import</span> {{'{'}} Observable {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/Observable'</span>;
+    <span class="red">import</span> {{'{'}} timer {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/timer'</span>;
+
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">timer</span>(<span class="gatsby-purple">1000</span>, <span class="gatsby-purple">5000</span>);
+      
+    <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
+      <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
+      <span class="vue-green">complete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+      <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
+    {{'}'}}
+    <span class="orange">this</span>.source.<span class="vue-green">subscribe</span>(Observer);
+    
+    <span class="gray">// 隔一秒發送 0</span>
+    <span class="gray">// 隔五秒發送 1</span>
+    <span class="gray">// 隔五秒發送 2</span>
+    <span class="gray">// ...</span>
+  </code>
+</pre>
+<p>&emsp;上面補充一下，timer 第一個值不一定要是數字，也可以是日期， Observable 則會等到 Date 才發送</p>

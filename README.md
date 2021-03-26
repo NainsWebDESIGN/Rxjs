@@ -11,4 +11,4 @@
 
 #### 最後階段
 
-到 create/child/boring 的 empty 剛結束
+到 create/child/Subscription 剛結束，正要開始 Operators

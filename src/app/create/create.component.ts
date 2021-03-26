@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class CreateComponent implements OnInit {
   constructor() { }
   backTop() {
-    // window.scrollY = 0;
   }
   ngOnInit() {
   }

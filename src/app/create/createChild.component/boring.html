@@ -6,11 +6,11 @@
     <span class="red">import</span> {{'{'}} Observable {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/Observable'</span>;
     <span class="red">import</span> {{'{'}} empty {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/empty'</span>;
 
-    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">string</span>{{'>'}} <span class="red">=</span> <span class="vue-green">empty</span>();
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">empty</span>();
       
     <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
       <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
-      <span class="vue-green">conplete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+      <span class="vue-green">complete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
       <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
     {{'}'}}
     <span class="orange">this</span>.source.<span class="vue-green">subscribe</span>(Observer);
@@ -18,3 +18,41 @@
     <span class="gray">// 完成!</span>
   </code>
 </pre>
+
+<p>&emsp;never 會給我們一個無窮的 Observable ,訂閱他則什麼事情都不會發生，因為是發生在無窮久以後的事(兩條平行線永遠也無法完成...)</p>
+<pre>
+  <code>
+    <span class="red">import</span> {{'{'}} Observable {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/Observable'</span>;
+    <span class="red">import</span> {{'{'}} never {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/never'</span>;
+
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">never</span>();
+      
+    <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
+      <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
+      <span class="vue-green">complete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+      <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
+    {{'}'}}
+    <span class="orange">this</span>.source.<span class="vue-green">subscribe</span>(Observer);
+  </code>
+</pre>
+
+<p>&emsp;throw 就只會拋出錯誤...</p>
+<pre>
+  <code>
+    <span class="red">import</span> {{'{'}} Observable {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/Observable'</span>;
+    <span class="red">import</span> {{'{'}} _throw {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/throw'</span>;
+
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">_throw</span>(<span class="yellow">'哪尼!'</span>);
+      
+    <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
+      <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
+      <span class="vue-green">complete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+      <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'錯誤: '</span> <span class="red">+</span> <span class="orange">error</span>); {{'}'}}
+    {{'}'}}
+    <span class="orange">this</span>.source.<span class="vue-green">subscribe</span>(Observer);
+    
+    <span class="gray">// 錯誤: 哪尼!</span>
+  </code>
+</pre>
+
+<p>&emsp;這三個屬性雖然看似沒啥卵用，但後面會有派上用場的時候</p>

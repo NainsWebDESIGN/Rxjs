@@ -7,7 +7,9 @@ import { ConcatComponent } from './combination/concat/concat.component';
 import { ForkJoinComponent } from './combination/forkJoin/forkJoin.component';
 import { CombinationComponent } from './combination/combination.component';
 import { CreateComponent } from './create/create.component';
-import { OfComponent, FromComponent, FromEventComponent, Frompromise, Boring } from './create/createChild.component/createChild.component';
+import {
+  OfComponent, FromComponent, FromEventComponent, Frompromise, Boring, Timer, SubscriptionComponent
+} from './create/createChild.component/createChild.component';
 
 import { AppService } from '@service/app.service';
 import { AppRoutingModule } from './app.routing';
@@ -15,16 +17,9 @@ import { AppRoutingModule } from './app.routing';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ConcatComponent,
-    ForkJoinComponent,
-    CombinationComponent,
-    CreateComponent,
-    OfComponent,
-    FromComponent,
-    FromEventComponent,
-    Frompromise,
-    Boring
+    AppComponent, ConcatComponent, ForkJoinComponent, CombinationComponent,
+    CreateComponent, OfComponent, FromComponent, FromEventComponent,
+    Frompromise, Boring, Timer, SubscriptionComponent
   ],
   imports: [
     BrowserModule,

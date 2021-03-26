@@ -8,12 +8,12 @@
     source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">fromPromise</span>(<span class="red">new</span> <span class="cyan">Promise</span>((<span class="vue-green">resolve</span>, <span class="vue-green">reject</span>) <span class="cyan">=></span> {{'{'}}
         <span class="cyan">setTimeout</span>(() <span class="cyan">=></span> {{'{'}}
           <span class="vue-green">resolve</span>(<span class="yellow">'Hello RxJS!'</span>);
-        {{'}'}}, <span class="C#-purple">3000</span>)
+        {{'}'}}, <span class="gatsby-purple">3000</span>)
       {{'}'}}))
 
     <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
     <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
-    <span class="vue-green">conplete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+    <span class="vue-green">complete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
     <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
     {{'}'}}
     <span class="orange">this</span>.source.<span class="vue-green">subscribe</span>(Observer);
