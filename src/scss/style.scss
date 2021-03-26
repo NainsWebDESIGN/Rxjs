@@ -54,6 +54,11 @@ body {
 a {
   text-decoration: none;
 }
+.li-menu a:hover {
+  background: linear-gradient(to bottom, #1573e6, #73a9ebc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 h1 {
   width: 100%;
   text-align: center;
@@ -71,6 +76,8 @@ p {
 }
 ul li {
   list-style: none;
+  line-height: 1.9;
+  font-weight: 700;
 }
 p {
   font-weight: 700;

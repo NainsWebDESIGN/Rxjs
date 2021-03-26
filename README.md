@@ -11,4 +11,5 @@
 
 #### 最後階段
 
-到 create/child/Subscription 剛結束，正要開始 Operators
+1. 到 create/child/Subscription 剛結束，正要開始 Operators
+2. 模板改善及更名

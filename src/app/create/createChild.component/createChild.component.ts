@@ -23,10 +23,10 @@ export class OfComponent implements OnInit, OnDestroy {
   clearSource: Subscription = new Subscription();
   constructor(private app: AppService) { }
   ngOnInit() {
-    this.clearSource = this.source.subscribe(this.app.Observer);
+    // this.clearSource = this.source.subscribe(this.app.Observer);
   }
   ngOnDestroy() {
-    this.clearSource.unsubscribe();
+    // this.clearSource.unsubscribe();
   }
 
 }
@@ -43,12 +43,12 @@ export class FromComponent implements OnInit, OnDestroy {
   clearSourceStr: Subscription = new Subscription();
   constructor(private app: AppService) { }
   ngOnInit() {
-    this.clearSource = this.source.subscribe(this.app.Observer);
-    this.clearSourceStr = this.sourceStr.subscribe(this.app.Observer);
+    // this.clearSource = this.source.subscribe(this.app.Observer);
+    // this.clearSourceStr = this.sourceStr.subscribe(this.app.Observer);
   }
   ngOnDestroy() {
-    this.clearSource.unsubscribe();
-    this.clearSourceStr.unsubscribe();
+    // this.clearSource.unsubscribe();
+    // this.clearSourceStr.unsubscribe();
   }
 
 }
@@ -67,10 +67,10 @@ export class Frompromise implements OnInit, OnDestroy {
   clearSource: Subscription = new Subscription();
   constructor(private app: AppService) { }
   ngOnInit() {
-    this.clearSource = this.source.subscribe(this.app.Observer);
+    // this.clearSource = this.source.subscribe(this.app.Observer);
   }
   ngOnDestroy() {
-    this.clearSource.unsubscribe();
+    // this.clearSource.unsubscribe();
   }
 
 }
@@ -85,10 +85,10 @@ export class FromEventComponent implements OnInit, OnDestroy {
   clearSource: Subscription = new Subscription();
   constructor(private app: AppService) { }
   ngOnInit() {
-    this.clearSource = this.source.subscribe(this.app.Observer);
+    // this.clearSource = this.source.subscribe(this.app.Observer);
   }
   ngOnDestroy() {
-    this.clearSource.unsubscribe();
+    // this.clearSource.unsubscribe();
   }
 
 }
@@ -112,14 +112,14 @@ export class Boring implements OnInit, OnDestroy {
       complete: () => { console.log('完成!'); },
       error: error => { console.log('錯誤: ' + error); }
     }
-    this.clearEmpty = this.Empty.subscribe(this.app.Observer);
-    this.clearNever = this.Never.subscribe(this.app.Observer);
-    this.clearThrow = this.Throw.subscribe(Observer);
+    // this.clearEmpty = this.Empty.subscribe(this.app.Observer);
+    // this.clearNever = this.Never.subscribe(this.app.Observer);
+    // this.clearThrow = this.Throw.subscribe(Observer);
   }
   ngOnDestroy() {
-    this.clearEmpty.unsubscribe();
-    this.clearNever.unsubscribe();
-    this.clearThrow.unsubscribe();
+    // this.clearEmpty.unsubscribe();
+    // this.clearNever.unsubscribe();
+    // this.clearThrow.unsubscribe();
   }
 
 }
@@ -162,10 +162,10 @@ export class SubscriptionComponent implements OnInit, OnDestroy {
   clearSource: Subscription = new Subscription();
   constructor(private app: AppService) { }
   ngOnInit() {
-    this.clearSource = this.source.subscribe(this.app.Observer);
+    // this.clearSource = this.source.subscribe(this.app.Observer);
   }
   ngOnDestroy() {
-    this.clearSource.unsubscribe();
+    // this.clearSource.unsubscribe();
   }
 
 }
