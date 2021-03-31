@@ -1,4 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
+import { AppService } from '@service/app.service';
+
 import { Observable } from 'rxjs';
 import { from } from 'rxjs/observable/from';
 import { fromEvent } from 'rxjs/observable/fromEvent';
@@ -8,7 +11,6 @@ import { never } from 'rxjs/observable/never';
 import { _throw } from 'rxjs/observable/throw';
 import { interval } from 'rxjs/observable/interval';
 import { of } from 'rxjs/observable/of';
-import { AppService } from '@service/app.service';
 import { Subscription } from 'rxjs/Subscription';
 import { timer } from 'rxjs/observable/timer';
 

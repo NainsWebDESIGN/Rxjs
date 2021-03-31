@@ -1,3 +1,12 @@
 <h1>操作: Operators - Rxjs (給自己的筆記)</h1>
 <a [routerLink]="['/Create']" class="routerBtn">創建: Create</a>
 <a href="javascript:scroll(0,0)" class="topBtn"><i class="fas fa-caret-circle-up fa-2x"></i></a>
+<p>什麼是 Operator ? operator主要是做 Observable 的函式處理，而它的原理則是把一個 Observable 丟進去函式裡再回傳一個新的 Observable，這邊要特別注意的是 Rxjs 6 以後就不再讓
+    operator 存在於原形之中，須以 pipe 銜接起來</p>
+<ul>
+    <li *ngFor="let even of data"><a [href]="'#' + even.href">{{even.name}}</a></li>
+</ul>
+<br>
+<map id="map"></map>
+<br>
+<filter id="filter"></filter>

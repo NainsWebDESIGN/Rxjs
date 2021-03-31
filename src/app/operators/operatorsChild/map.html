@@ -1,0 +1,47 @@
+<h3>map 應用</h3>
+<p>&emsp;map 就跟Array的map是一樣的意思，他將帶入每次發送出來的元素，再回傳處理過的新元素</p>
+<pre>
+  <code>
+    <span class="red">import</span> {{'{'}} map {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/operators/map'</span>;
+    <span class="red">import</span> {{'{'}} interval {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/interval'</span>;
+
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">interval</span>(<span class="gatsby-purple">1000</span>);
+      
+    <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
+      <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
+      <span class="vue-green">complete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+      <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
+    {{'}'}}
+    <span class="cyan">let</span> newest <span class="red">=</span> <span class="orange">this</span>.source.<span class="vue-green">pipe</span>(<span class="vue-green">map</span>((<span class="orange">el</span><span class="red">:</span> <span class="cyan">number</span>) <span class="cyan">=></span> <span class="orange">el</span> <span class="red">+</span> <span class="gatsby-purple">2</span>));
+    newest.<span class="vue-green">subscribe</span>(Observer);
+    
+    <span class="gray">// 2</span>
+    <span class="gray">// 3</span>
+    <span class="gray">// 4</span>
+    <span class="gray">// ...</span>
+  </code>
+</pre>
+
+<h3>mapTo 應用</h3>
+<p>&emsp;這邊有一個方法跟map很像，叫做mapTo，而它的作用則是全部改成固定的值</p>
+<pre>
+  <code>
+    <span class="red">import</span> {{'{'}} mapTo {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/operators/mapTo'</span>;
+    <span class="red">import</span> {{'{'}} interval {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/interval'</span>;
+
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">interval</span>(<span class="gatsby-purple">1000</span>);
+      
+    <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
+      <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
+      <span class="vue-green">complete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+      <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
+    {{'}'}}
+    <span class="cyan">let</span> newest <span class="red">=</span> <span class="orange">this</span>.source.<span class="vue-green">pipe</span>(<span class="vue-green">mapTo</span>(<span class="gatsby-purple">2</span>));
+    newest.<span class="vue-green">subscribe</span>(Observer);
+    
+    <span class="gray">// 2</span>
+    <span class="gray">// 2</span>
+    <span class="gray">// 2</span>
+    <span class="gray">// ...</span>
+  </code>
+</pre>

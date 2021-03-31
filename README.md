@@ -11,6 +11,4 @@
 
 #### 最後階段
 
-1. 到 create/child/Subscription 剛結束，正要開始 Operators
-2. 模板改善及更名
-3. 新增 Component
+到 operators/child/filter 剛結束，正要開始 take
