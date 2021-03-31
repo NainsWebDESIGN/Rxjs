@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class OperatorsComponent implements OnInit {
   data: any = [
     { name: "map", href: "map" },
-    { name: "filter", href: "filter" }
+    { name: "filter", href: "filter" },
+    { name: "take", href: "take" },
+    { name: "first", href: "first" },
+    { name: "takeuntil", href: "takeuntil" },
+    { name: "concatAll", href: "concatAll" }
 
   ]
   constructor() { }

@@ -1,0 +1,26 @@
+<h3>concatAll 應用</h3>
+<p>&emsp;concatAll 有時候我們會有Observable又包著一個Observable的情況，就像是多維陣列一樣，而concatAll則是將陣列扁平化的最佳方式</p>
+<pre>
+  <code>
+    <span class="red">import</span> {{'{'}} concatAll {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/operators/concatAll'</span>;
+    <span class="red">import</span> {{'{'}} interval {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/interval'</span>;
+    <span class="red">import</span> {{'{'}} fromEvent {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/fromEvent'</span>;
+    <span class="red">import</span> {{'{'}} of {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/of'</span>;
+
+    click<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">fromEvent</span>(document.body), <span class="yellow">'click'</span>)
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="orange">this</span>.click.<span class="vue-green">pipe</span>(<span class="vue-green">map</span>(() <span class="cyan">=></span> <span class="vue-green">of</span>(<span class="gatsby-purple">1</span>, <span class="gatsby-purple">2</span>, <span class="gatsby-purple">3</span>)));
+      
+    <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
+      <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
+      <span class="vue-green">complete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+      <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
+    {{'}'}}
+    <span class="cyan">let</span> newest <span class="red">=</span> <span class="orange">this</span>.source.<span class="vue-green">pipe</span>(<span class="vue-green">concatAll</span>());
+    newest.<span class="vue-green">subscribe</span>(Observer);
+    
+    <span class="gray">// 點擊body</span>
+    <span class="gray">// 1</span>
+    <span class="gray">// 2</span>
+    <span class="gray">// 3</span>
+  </code>
+</pre>

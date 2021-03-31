@@ -11,4 +11,4 @@
 
 #### 最後階段
 
-到 operators/child/filter 剛結束，正要開始 take
+到 operators/child/concatAll 剛結束，正要開始實行拖拉實作

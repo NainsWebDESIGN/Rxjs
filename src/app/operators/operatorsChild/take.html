@@ -1,0 +1,23 @@
+<h3>take 應用</h3>
+<p>&emsp;take 是簡單明瞭的一個operators，意即取前面幾個值就結束</p>
+<pre>
+  <code>
+    <span class="red">import</span> {{'{'}} take {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/operators/take'</span>;
+    <span class="red">import</span> {{'{'}} interval {{'}'}} <span class="red">from</span> <span class="yellow">'rxjs/observable/interval'</span>;
+
+    source<span class="red">:</span> <span class="vue-green">Observable</span>{{'<'}}<span class="cyan">any</span>{{'>'}} <span class="red">=</span> <span class="vue-green">interval</span>(<span class="gatsby-purple">1000</span>);
+      
+    <span class="cyan">let</span> Observer <span class="red">=</span> {{'{'}}
+      <span class="vue-green">next</span>: <span class="orange">value</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">value</span>); {{'}'}},
+      <span class="vue-green">complete</span>: () <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="yellow">'完成!'</span>); {{'}'}},
+      <span class="vue-green">error</span>: <span class="orange">error</span> <span class="cyan">=></span> {{'{'}} console.<span class="vue-green">log</span>(<span class="orange">error</span>); {{'}'}}
+    {{'}'}}
+    <span class="cyan">let</span> newest <span class="red">=</span> <span class="orange">this</span>.source.<span class="vue-green">pipe</span>(<span class="vue-green">take</span>(<span class="gatsby-purple">3</span>));
+    newest.<span class="vue-green">subscribe</span>(Observer);
+    
+    <span class="gray">// 0</span>
+    <span class="gray">// 1</span>
+    <span class="gray">// 2</span>
+    <span class="gray">// 完成!</span>
+  </code>
+</pre>
