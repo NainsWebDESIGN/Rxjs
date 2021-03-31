@@ -93,12 +93,12 @@ export class TakeUntil implements OnInit {
   styleUrls: ['./operatorsChild.component.css']
 })
 export class ConcatAll implements OnInit {
-  click: any = fromEvent(document.body, 'click');
-  source: Observable<any> = this.click.pipe(map(() => of(1, 2, 3)));
+  // click: any = fromEvent(document.body, 'click');
+  // source: Observable<any> = this.click.pipe(map(() => of(1, 2, 3)));
   constructor(private app: AppService) { }
   ngOnInit() {
-    let newest = this.source.pipe(concatAll());
-    newest.subscribe(this.app.Observer);
+    // let newest = this.source.pipe(concatAll());
+    // newest.subscribe(this.app.Observer);
   }
 
 }

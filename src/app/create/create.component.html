@@ -3,7 +3,8 @@
 <a href="javascript:scroll(0,0)" class="topBtn"><i class="fas fa-caret-circle-up fa-2x"></i></a>
 <p>創建 Observable 的方式, RxJS 常用的 creation operator</p>
 <ul>
-  <li *ngFor="let even of data" class="li-menu"><a [href]="'#' + even.href">{{even.name}}</a></li>
+  <li *ngFor="let even of data" class="li-menu"><a [ngxScrollTo]="'#' + even.href"
+      [ngxScrollToDuration]="100">{{even.name}}</a></li>
 </ul>
 <br>
 <of id="of"></of>

@@ -11,4 +11,8 @@
 
 #### 最後階段
 
-到 operators/child/concatAll 剛結束，正要開始實行拖拉實作
+1. 到 operators/child/concatAll 剛結束，正要開始實行拖拉實作
+2. 新增 ngx-scroll-to 指令碼:
+   `npm i @nicky-lenaers/ngx-scroll-to`
+   (要到 App.Module imports 新增 ScrollToModule.forRoot())
+3. 更正移動到 HTMLElement 的方式

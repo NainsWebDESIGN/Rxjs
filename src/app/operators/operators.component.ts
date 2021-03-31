@@ -16,7 +16,9 @@ export class OperatorsComponent implements OnInit {
 
   ]
   constructor() { }
-
+  ScrollToElement($element: any) {
+    $element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+  }
   ngOnInit() {
   }
 
